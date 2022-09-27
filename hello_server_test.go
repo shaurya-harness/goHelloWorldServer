@@ -3,21 +3,21 @@ package main
 import "testing"
 
 func TestGreetingSpecificJohn(t *testing.T) {
-	t.Errorf("Greeting was incorrect, got: %s, want: %s.", "Hello, John\n")
+	t.Errorf("Greeting was incorrect")
 }
 
 func TestGreetingSpecificDemo(t *testing.T) {
-	t.Errorf("Greeting was incorrect, got: %s, want: %s.", "Hello, Demo\n")
+	t.Errorf("Greeting was incorrect")
 }
 
 func TestShowFailure(t *testing.T) {
-	t.Errorf("Intentional failure. got: %s, want: %s.", "Hello, Demo\n")
+	t.Errorf("Intentional failure")
 }
 
 
 
 func TestGreetingDefault(t *testing.T) {
-	t.Errorf("Greeting was incorrect, got: %s, want: %s.", "Hello, Guest\n")
+	t.Errorf("Greeting was incorrect")
 }
  
 
