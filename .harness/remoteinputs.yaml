@@ -10,6 +10,9 @@ pipeline:
         connectorRef: accountsk
         repoName: goHelloWorldServer
         build: <+input>
+        depth: <+input>
+        sslVerify: <+input>
+        prCloneStrategy: <+input>
   stages:
     - stage:
         name: build
