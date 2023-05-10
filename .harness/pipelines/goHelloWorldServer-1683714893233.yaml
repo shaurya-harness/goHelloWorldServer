@@ -17,14 +17,18 @@ pipeline:
                   name: Echo Welcome Message
                   identifier: Echo_Welcome_Message
                   spec:
+                    connectorRef: account.harnessImage
+                    image: alpine
                     shell: Sh
                     command: echo "Welcome to Harness CI"
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k8test
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
   properties:
     ci:
       codebase:
