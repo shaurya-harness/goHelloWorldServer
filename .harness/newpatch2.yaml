@@ -1,5 +1,6 @@
 inputSet:
   name: newpatch2
+  tags: {}
   identifier: newpatch2
   orgIdentifier: default
   projectIdentifier: shauryaTest
@@ -26,5 +27,9 @@ inputSet:
                     identifier: Run_1
                     type: Run
                     spec:
-                      image: a
-  object Object: pipeline.properties.ci.codebase
+                      envVariables:
+                        first: first
+  cacheResponse:
+    cacheState: VALID_CACHE
+    ttlLeft: 259173749
+    lastUpdatedAt: 1684610421045
