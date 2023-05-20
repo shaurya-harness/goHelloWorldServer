@@ -1,0 +1,31 @@
+inputSet:
+  name: newinput2
+  identifier: newinput2
+  orgIdentifier: default
+  projectIdentifier: shauryaTest
+  pipeline:
+    identifier: remoteinputs
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: main-patch-3
+          depth: 50
+          sslVerify: true
+          prCloneStrategy: MergeCommit
+    stages:
+      - stage:
+          identifier: build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Run_1
+                    type: Run
+                    spec:
+                      envVariables:
+                        sec: sec
+  object Object: pipeline.properties.ci.codebase
