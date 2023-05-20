@@ -29,9 +29,10 @@ pipeline:
                   identifier: Run_1
                   spec:
                     connectorRef: new_docker_test
-                    image: <+input>
+                    image: alpine
                     shell: Sh
                     command: echo node --version
+                    envVariables: <+input>
                   description: ec
           infrastructure:
             type: KubernetesDirect
