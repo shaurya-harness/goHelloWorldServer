@@ -4,23 +4,13 @@ pipeline:
   projectIdentifier: shauryaTest
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: accountsk
-        repoName: goHelloWorldServer
-        build: <+input>
-        depth: <+input>
-        sslVerify: <+input>
-        prCloneStrategy: <+input>
   stages:
     - stage:
         name: build
         identifier: build
-        description: ""
         type: CI
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           execution:
             steps:
               - step:
