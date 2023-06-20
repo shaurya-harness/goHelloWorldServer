@@ -32,3 +32,9 @@ pipeline:
               automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
+  properties:
+    ci:
+      codebase:
+        connectorRef: accountsk
+        repoName: goHelloWorldServer
+        build: <+input>
