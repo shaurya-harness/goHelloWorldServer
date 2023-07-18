@@ -21,7 +21,9 @@ pipeline:
                     connectorRef: new_docker_test
                     image: alpine
                     shell: Sh
-                    command: echo node --version
+                    command: |-
+                      echo node --version
+                      exit 1
                     envVariables: <+input>
                   description: ec
           infrastructure:
@@ -32,9 +34,3 @@ pipeline:
               automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
-  properties:
-    ci:
-      codebase:
-        connectorRef: accountsk
-        repoName: goHelloWorldServer
-        build: <+input>
