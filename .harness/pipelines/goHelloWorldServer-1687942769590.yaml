@@ -3,18 +3,12 @@ pipeline:
   name: Build goHelloWorldServer
   orgIdentifier: default
   projectIdentifier: test_ci
-  properties:
-    ci:
-      codebase:
-        build: <+input>
-        connectorRef: account.Github
-        repoName: shaurya-harness/goHelloWorldServer
   stages:
     - stage:
         identifier: build
         name: build
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           execution:
             steps:
               - step:
@@ -48,4 +42,7 @@ pipeline:
           runtime:
             spec: {}
             type: Cloud
+          caching:
+            enabled: false
+            paths: []
         type: CI
