@@ -10,7 +10,7 @@ pipeline:
         identifier: build
         type: CI
         spec:
-          cloneCodebase: false
+          cloneCodebase: true
           execution:
             steps:
               - step:
@@ -32,6 +32,9 @@ pipeline:
           runtime:
             type: Cloud
             spec: {}
+          caching:
+            enabled: false
+            paths: []
   properties:
     ci:
       codebase:
