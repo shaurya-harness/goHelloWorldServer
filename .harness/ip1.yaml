@@ -1,0 +1,62 @@
+inputSet:
+  name: ip-1
+  identifier: ip1
+  orgIdentifier: default
+  projectIdentifier: shauryaTest
+  pipeline:
+    identifier: remoteinputs
+    stages:
+      - parallel:
+          - stage:
+              identifier: build
+              type: CI
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: Run_1
+                        type: Run
+                        spec:
+                          command: echo hw
+                          envVariables:
+                            a: a
+                platform:
+                  os: Linux
+                  arch: Amd64
+          - stage:
+              identifier: b2
+              type: CI
+              spec:
+                platform:
+                  os: Linux
+                  arch: Amd64
+                execution:
+                  steps:
+                    - step:
+                        identifier: Run_1
+                        type: Run
+                        spec:
+                          command: echo hw2
+      - parallel:
+          - stage:
+              identifier: b1
+              type: CI
+              spec:
+                platform:
+                  os: Linux
+                  arch: Amd64
+                execution:
+                  steps:
+                    - step:
+                        identifier: Run_1
+                        type: Run
+                        spec:
+                          command: echo hw3
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: main
+  object Object: pipeline.properties.ci.codebase
