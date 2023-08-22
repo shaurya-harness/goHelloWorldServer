@@ -5,36 +5,57 @@ pipeline:
   orgIdentifier: default
   tags: {}
   stages:
-    - stage:
-        name: build
-        identifier: build
-        type: CI
-        spec:
-          cloneCodebase: true
-          execution:
-            steps:
-              - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
-                  spec:
-                    connectorRef: new_docker_test
-                    image: alpine
-                    shell: Sh
-                    command: |-
-                      echo node --version
-                      exit 1
-                    envVariables: <+input>
-                  description: ec
-          platform:
-            os: Linux
-            arch: Arm64
-          runtime:
-            type: Cloud
-            spec: {}
-          caching:
-            enabled: false
-            paths: []
+    - parallel:
+        - stage:
+            name: build
+            identifier: build
+            type: CI
+            spec:
+              cloneCodebase: true
+              execution:
+                steps:
+                  - step:
+                      type: Run
+                      name: Run_1
+                      identifier: Run_1
+                      spec:
+                        connectorRef: new_docker_test
+                        image: alpine
+                        shell: Sh
+                        command: <+input>
+                        envVariables: <+input>
+                      description: ec
+              platform:
+                os: <+input>
+                arch: <+input>
+              runtime:
+                type: Cloud
+                spec: {}
+              caching:
+                enabled: false
+                paths: []
+        - stage:
+            name: b2
+            identifier: b2
+            description: ""
+            type: CI
+            spec:
+              cloneCodebase: true
+              platform:
+                os: <+input>
+                arch: <+input>
+              runtime:
+                type: Cloud
+                spec: {}
+              execution:
+                steps:
+                  - step:
+                      type: Run
+                      name: Run_1
+                      identifier: Run_1
+                      spec:
+                        shell: Sh
+                        command: <+input>
     - parallel:
         - stage:
             name: b1
@@ -44,8 +65,8 @@ pipeline:
             spec:
               cloneCodebase: true
               platform:
-                os: Linux
-                arch: Arm64
+                os: <+input>
+                arch: <+input>
               runtime:
                 type: Cloud
                 spec: {}
@@ -59,7 +80,7 @@ pipeline:
                         connectorRef: account.CItestDockerConnector2vBIt6Rgze
                         image: golang:1.15
                         shell: Sh
-                        command: echo hw
+                        command: <+input>
         - stage:
             name: gitness-chained
             identifier: gitnesschained
