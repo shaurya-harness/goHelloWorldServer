@@ -41,6 +41,12 @@ pipeline:
               project: shauryaTest
               inputs:
                 identifier: chainednoclone
+                properties:
+                  ci:
+                    codebase:
+                      connectorRef: <+input>
+                      repoName: <+input>
+                      build: <+input>
               outputs: []
         - stage:
             name: pipeline-template-codebase
