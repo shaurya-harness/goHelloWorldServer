@@ -91,7 +91,29 @@ pipeline:
               pipeline: gitness_based
               project: shauryaTest
               outputs: []
-              inputSetReferences: []
+              inputs:
+                identifier: gitness_based
+                properties:
+                  ci:
+                    codebase:
+                      build: <+input>
+                stages:
+                  - stage:
+                      identifier: template
+                      template:
+                        templateInputs:
+                          type: CI
+                          spec:
+                            platform:
+                              os: <+input>
+                              arch: <+input>
+                            execution:
+                              steps:
+                                - step:
+                                    identifier: Run_1
+                                    type: Run
+                                    spec:
+                                      command: <+input>
             tags: {}
             when: <+input>
         - stage:
