@@ -92,8 +92,9 @@ pipeline:
               project: shauryaTest
               inputSetReferences:
                 - input1
+              outputs: []
             tags: {}
-            delegateSelectors: <+input>
+            when: <+input>
         - stage:
             name: chained-2
             identifier: chained2
