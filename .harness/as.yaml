@@ -1,0 +1,61 @@
+inputSet:
+  name: as
+  identifier: as
+  orgIdentifier: default
+  projectIdentifier: shauryaTest
+  pipeline:
+    identifier: remoteinputs
+    stages:
+      - parallel:
+          - stage:
+              identifier: b1
+              type: CI
+              spec:
+                platform:
+                  os: Linux
+                  arch: Amd64
+                execution:
+                  steps:
+                    - step:
+                        identifier: Run_1
+                        type: Run
+                        spec:
+                          command: echo h1
+          - stage:
+              identifier: pipelinetemplatecodebase
+              type: Pipeline
+              spec:
+                inputs:
+                  identifier: templatepipeline
+                  template:
+                    templateInputs:
+                      stages:
+                        - stage:
+                            identifier: codebaseenabled
+                            template:
+                              templateInputs:
+                                type: CI
+                                spec:
+                                  platform:
+                                    os: <+input>
+                                    arch: <+input>
+                                  execution:
+                                    steps:
+                                      - step:
+                                          identifier: Run_1
+                                          type: Run
+                                          spec:
+                                            command: <+input>
+                      properties:
+                        ci:
+                          codebase:
+                            connectorRef: <+input>
+                            repoName: <+input>
+                            build: <+input>
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: main
