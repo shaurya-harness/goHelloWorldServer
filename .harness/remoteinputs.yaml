@@ -40,8 +40,45 @@ pipeline:
               pipeline: gitness_based
               project: shauryaTest
               inputSetReferences:
-                - input4
+                - ipwocodebase
             delegateSelectors: <+input>
+            tags: {}
+        - stage:
+            name: hcinaed-2
+            identifier: hcinaed2
+            description: ""
+            type: Pipeline
+            spec:
+              org: default
+              pipeline: templatepipeline
+              project: shauryaTest
+              inputs:
+                identifier: templatepipeline
+                template:
+                  templateInputs:
+                    stages:
+                      - stage:
+                          identifier: codebaseenabled
+                          template:
+                            templateInputs:
+                              type: CI
+                              spec:
+                                platform:
+                                  os: <+input>
+                                  arch: <+input>
+                                execution:
+                                  steps:
+                                    - step:
+                                        identifier: Run_1
+                                        type: Run
+                                        spec:
+                                          command: <+input>
+                    properties:
+                      ci:
+                        codebase:
+                          connectorRef: <+input>
+                          repoName: <+input>
+                          build: <+input>
   properties:
     ci:
       codebase:
