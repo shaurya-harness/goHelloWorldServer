@@ -91,7 +91,7 @@ pipeline:
               pipeline: gitness_based
               project: shauryaTest
               inputSetReferences:
-                - input1
+                - ipwocodebase
               outputs: []
             tags: {}
             when: <+input>
