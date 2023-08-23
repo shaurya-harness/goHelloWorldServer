@@ -39,7 +39,8 @@ pipeline:
               org: default
               pipeline: gitness_based
               project: shauryaTest
-              inputSetReferences: []
+              inputSetReferences:
+                - input4
             delegateSelectors: <+input>
   properties:
     ci:
