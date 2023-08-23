@@ -93,10 +93,6 @@ pipeline:
               outputs: []
               inputs:
                 identifier: gitness_based
-                properties:
-                  ci:
-                    codebase:
-                      build: <+input>
                 stages:
                   - stage:
                       identifier: template
