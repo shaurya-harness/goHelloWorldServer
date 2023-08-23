@@ -40,7 +40,6 @@ pipeline:
               pipeline: gitness_based
               project: shauryaTest
               inputSetReferences: []
-            tags: {}
             delegateSelectors: <+input>
   properties:
     ci:
