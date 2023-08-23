@@ -90,9 +90,8 @@ pipeline:
               org: default
               pipeline: gitness_based
               project: shauryaTest
-              inputSetReferences:
-                - ipwocodebase
               outputs: []
+              inputSetReferences: []
             tags: {}
             when: <+input>
         - stage:
