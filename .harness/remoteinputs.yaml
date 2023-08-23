@@ -56,30 +56,77 @@ pipeline:
                       spec:
                         shell: Sh
                         command: <+input>
-    - stage:
-        name: b1
-        identifier: b1
-        description: ""
-        type: CI
-        spec:
-          cloneCodebase: true
-          platform:
-            os: <+input>
-            arch: <+input>
-          runtime:
-            type: Cloud
-            spec: {}
-          execution:
-            steps:
-              - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
-                  spec:
-                    connectorRef: account.CItestDockerConnector2vBIt6Rgze
-                    image: golang:1.15
-                    shell: Sh
-                    command: <+input>
+    - parallel:
+        - stage:
+            name: b1
+            identifier: b1
+            description: ""
+            type: CI
+            spec:
+              cloneCodebase: true
+              platform:
+                os: <+input>
+                arch: <+input>
+              runtime:
+                type: Cloud
+                spec: {}
+              execution:
+                steps:
+                  - step:
+                      type: Run
+                      name: Run_1
+                      identifier: Run_1
+                      spec:
+                        connectorRef: account.CItestDockerConnector2vBIt6Rgze
+                        image: golang:1.15
+                        shell: Sh
+                        command: <+input>
+        - stage:
+            name: stage-template-no-codebase
+            identifier: stagetemplatenocodebase
+            description: ""
+            type: Pipeline
+            spec:
+              org: default
+              pipeline: chainednoclone
+              project: shauryaTest
+              inputs:
+                identifier: chainednoclone
+              outputs: []
+        - stage:
+            name: pipeline-template-codebase
+            identifier: pipelinetemplatecodebase
+            description: ""
+            type: Pipeline
+            spec:
+              org: default
+              pipeline: templatepipeline
+              project: shauryaTest
+              inputs:
+                identifier: templatepipeline
+                template:
+                  templateInputs:
+                    stages:
+                      - stage:
+                          identifier: codebaseenabled
+                          template:
+                            templateInputs:
+                              type: CI
+                              spec:
+                                platform:
+                                  os: <+input>
+                                  arch: <+input>
+                                execution:
+                                  steps:
+                                    - step:
+                                        identifier: Run_1
+                                        type: Run
+                                        spec:
+                                          command: <+input>
+                    properties:
+                      ci:
+                        codebase:
+                          build: <+input>
   properties:
     ci:
       codebase:
