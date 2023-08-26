@@ -30,6 +30,8 @@ pipeline:
                         image: golang:1.15
                         shell: Sh
                         command: <+input>
+                        envVariables:
+                          asd: ""
         - stage:
             name: chained-1
             identifier: chained1
