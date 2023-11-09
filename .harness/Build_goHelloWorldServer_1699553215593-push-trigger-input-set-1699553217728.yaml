@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_goHelloWorldServer_1699553215593-push-trigger-input-set
+  identifier: Build_goHelloWorldServer_1699553215593pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: shauryatesting
+  pipeline:
+    identifier: Build_goHelloWorldServer_1699553215593
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
