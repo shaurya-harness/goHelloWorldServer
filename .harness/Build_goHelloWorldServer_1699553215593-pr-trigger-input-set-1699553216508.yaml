@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_goHelloWorldServer_1699553215593-pr-trigger-input-set
+  identifier: Build_goHelloWorldServer_1699553215593prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: shauryatesting
+  pipeline:
+    identifier: Build_goHelloWorldServer_1699553215593
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
