@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_goHelloWorldServer_1700129257795-pr-trigger-input-set
+  identifier: Build_shaurya_harness_goHelloWorldServer_1700129257795prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_shaurya_harness_goHelloWorldServer_1700129257795
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
