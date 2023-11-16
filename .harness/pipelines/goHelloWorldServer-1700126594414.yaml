@@ -29,5 +29,5 @@ pipeline:
     ci:
       codebase:
         connectorRef: account.Github_OAuth_1700126579413
-        repoName: goHelloWorldServer
+        repoName: oauth.goHelloWorldServer
         build: <+input>
