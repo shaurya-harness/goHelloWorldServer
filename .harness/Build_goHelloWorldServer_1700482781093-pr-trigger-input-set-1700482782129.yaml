@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_goHelloWorldServer_1700482781093-pr-trigger-input-set
+  identifier: Build_goHelloWorldServer_1700482781093prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: onboardingflowtest
+  pipeline:
+    identifier: Build_goHelloWorldServer_1700482781093
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
