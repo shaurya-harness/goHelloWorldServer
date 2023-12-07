@@ -1,0 +1,15 @@
+inputSet:
+  name: triggerinput
+  identifier: triggerinput
+  orgIdentifier: default
+  projectIdentifier: testagain
+  pipeline:
+    identifier: Build_shaurya_harness_goHelloWorldServer_1701963638064
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
+  object Object: pipeline.properties.ci.codebase
