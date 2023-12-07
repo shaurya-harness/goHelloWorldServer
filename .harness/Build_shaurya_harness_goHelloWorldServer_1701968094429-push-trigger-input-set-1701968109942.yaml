@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_goHelloWorldServer_1701968094429-push-trigger-input-set
+  identifier: Build_shaurya_harness_goHelloWorldServer_1701968094429pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: resh
+  pipeline:
+    identifier: Build_shaurya_harness_goHelloWorldServer_1701968094429
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
