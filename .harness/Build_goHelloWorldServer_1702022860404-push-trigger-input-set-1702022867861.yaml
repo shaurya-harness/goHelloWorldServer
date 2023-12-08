@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_goHelloWorldServer_1702022860404-push-trigger-input-set
+  identifier: Build_goHelloWorldServer_1702022860404pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: testagain
+  pipeline:
+    identifier: Build_goHelloWorldServer_1702022860404
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
