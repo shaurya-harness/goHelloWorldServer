@@ -1,0 +1,15 @@
+inputSet:
+  name: ip1
+  identifier: ip1
+  orgIdentifier: default
+  projectIdentifier: shauryatesting
+  pipeline:
+    identifier: remotetest
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: main-patch-3
+  object Object: pipeline.properties.ci.codebase
