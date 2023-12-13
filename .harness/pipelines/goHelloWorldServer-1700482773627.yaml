@@ -29,5 +29,5 @@ pipeline:
     ci:
       codebase:
         connectorRef: account.oauthsk
-        repoName: goHelloWorldServer
+        repoName: shaurya-harness/goHelloWorldServer
         build: <+input>
