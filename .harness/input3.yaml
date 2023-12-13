@@ -1,0 +1,27 @@
+inputSet:
+  name: input3
+  identifier: input3
+  orgIdentifier: default
+  projectIdentifier: onboardingflowtest
+  pipeline:
+    identifier: Build_goHelloWorldServer_1700482781093
+    stages:
+      - stage:
+          identifier: Build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Echo_Welcome_Message
+                    type: Run
+                    spec:
+                      command: echo 'using input3'
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: main-patch-3
+  object Object: pipeline.properties.ci.codebase
