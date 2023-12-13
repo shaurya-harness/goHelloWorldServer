@@ -1,0 +1,24 @@
+inputSet:
+  name: input1
+  identifier: input1
+  orgIdentifier: default
+  projectIdentifier: onboardingflowtest
+  pipeline:
+    identifier: Build_goHelloWorldServer_1700482781093
+    stages:
+      - stage:
+          identifier: Build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Echo_Welcome_Message
+                    type: Run
+                    spec:
+                      command: echo 'using ip1'
+    properties:
+      ci:
+        codebase:
+          build: <+input>
+  object Object: pipeline.properties.ci.codebase
