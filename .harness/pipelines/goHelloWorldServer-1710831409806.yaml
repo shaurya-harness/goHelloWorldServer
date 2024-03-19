@@ -27,7 +27,11 @@ pipeline:
                     command: go build
                     outputVariables:
                       - name: test
+                        type: Secret
+                        value: test
                       - name: a1
+                        type: String
+                        value: a1
                   timeout: ""
                   type: Run
               - step:
