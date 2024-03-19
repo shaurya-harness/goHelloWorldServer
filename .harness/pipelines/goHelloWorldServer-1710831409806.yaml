@@ -27,6 +27,7 @@ pipeline:
                     command: go build
                     outputVariables:
                       - name: test
+                      - name: a1
                   timeout: ""
                   type: Run
               - step:
