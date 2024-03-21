@@ -24,13 +24,13 @@ inputSet:
                       outputVariables:
                         - name: name
                           type: String
-                          value: <+input>
+                          value: v1
                         - name: test
                           type: String
-                          value: <+input>
+                          value: v2
                         - name: forSecret
                           type: Secret
-                          value: <+input>
+                          value: v3
                 - step:
                     identifier: dockerbuild
                     type: Plugin
@@ -38,8 +38,3 @@ inputSet:
                       settings:
                         password: ""
                         username: ""
-  spec:
-    outputVariables:
-      - value: Vname
-      - value: Vtest
-      - value: Vsecret
