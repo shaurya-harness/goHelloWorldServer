@@ -38,6 +38,16 @@ inputSet:
                       settings:
                         password: ""
                         username: ""
+                - step:
+                    identifier: rw
+                    template:
+                      templateInputs:
+                        type: Run
+                        spec:
+                          outputVariables:
+                            - name: name
+                              type: String
+                              value: rwVR
       - stage:
           identifier: custom
           type: Custom
