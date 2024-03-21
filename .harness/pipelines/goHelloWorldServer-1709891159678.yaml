@@ -27,6 +27,12 @@ pipeline:
                       - name: name
                         type: String
                         value: <+input>
+                      - name: test
+                        type: String
+                        value: <+input>
+                      - name: forSecret
+                        type: Secret
+                        value: <+input>
                   timeout: ""
                   type: Run
               - step:
