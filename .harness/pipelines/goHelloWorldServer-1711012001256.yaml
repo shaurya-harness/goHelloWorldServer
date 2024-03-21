@@ -63,3 +63,29 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+    - stage:
+        name: custom
+        identifier: custom
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 'a'
+                    environmentVariables: []
+                    outputVariables:
+                      - name: a
+                        type: String
+                        value: <+input>
+                  timeout: 10m
+        tags: {}
