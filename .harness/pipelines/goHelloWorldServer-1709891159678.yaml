@@ -93,5 +93,8 @@ pipeline:
                       - name: haha
                         type: String
                         value: ex
+                      - name: testCustom
+                        type: Secret
+                        value: <+input>
                   timeout: 10m
         tags: {}
