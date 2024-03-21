@@ -38,3 +38,17 @@ inputSet:
                       settings:
                         password: ""
                         username: ""
+      - stage:
+          identifier: custom
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: ShellScript_1
+                    type: ShellScript
+                    spec:
+                      outputVariables:
+                        - name: testCustom
+                          type: Secret
+                          value: customSecretValue
