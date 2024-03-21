@@ -1,0 +1,36 @@
+inputSet:
+  name: ask
+  identifier: ask
+  orgIdentifier: default
+  projectIdentifier: shauryatesting
+  pipeline:
+    identifier: Build_shaurya_harness_goHelloWorldServer_1709891168851
+    properties:
+      ci:
+        codebase:
+          build: <+input>
+    stages:
+      - stage:
+          identifier: build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: gobuild
+                    type: Run
+                    spec:
+                      outputVariables:
+                        - name: name
+                          type: String
+                          value: <+input>
+                - step:
+                    identifier: dockerbuild
+                    type: Plugin
+                    spec:
+                      settings:
+                        password: ""
+                        username: ""
+  spec:
+    outputVariables:
+      - value: name
