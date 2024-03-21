@@ -21,7 +21,12 @@ pipeline:
                   identifier: gobuild
                   name: go_build
                   spec:
+                    shell: Sh
                     command: go build
+                    outputVariables:
+                      - name: name
+                        type: String
+                        value: <+input>
                   timeout: ""
                   type: Run
               - step:
