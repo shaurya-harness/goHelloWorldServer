@@ -40,6 +40,6 @@ inputSet:
                         username: ""
   spec:
     outputVariables:
-      - value: thisName
-      - value: thisTest
-      - value: thisSecret
+      - value: Vname
+      - value: Vtest
+      - value: Vsecret
