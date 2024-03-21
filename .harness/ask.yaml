@@ -1,5 +1,6 @@
 inputSet:
   name: ask
+  tags: {}
   identifier: ask
   orgIdentifier: default
   projectIdentifier: shauryatesting
@@ -24,6 +25,12 @@ inputSet:
                         - name: name
                           type: String
                           value: <+input>
+                        - name: test
+                          type: String
+                          value: <+input>
+                        - name: forSecret
+                          type: Secret
+                          value: <+input>
                 - step:
                     identifier: dockerbuild
                     type: Plugin
@@ -33,4 +40,6 @@ inputSet:
                         username: ""
   spec:
     outputVariables:
-      - value: name
+      - value: thisName
+      - value: thisTest
+      - value: thisSecret
