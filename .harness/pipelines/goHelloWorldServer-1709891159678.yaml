@@ -25,14 +25,8 @@ pipeline:
                     command: go build
                     outputVariables:
                       - name: name
-                        type: String
-                        value: <+input>
                       - name: test
-                        type: String
-                        value: <+input>
                       - name: forSecret
-                        type: Secret
-                        value: <+input>
                   timeout: ""
                   type: Run
               - step:
@@ -79,35 +73,6 @@ pipeline:
             os: Linux
             arch: Amd64
           runtime:
-            type: Docker
+            type: Cloud
             spec: {}
         type: CI
-    - stage:
-        name: custom
-        identifier: custom
-        description: ""
-        type: Custom
-        spec:
-          execution:
-            steps:
-              - step:
-                  type: ShellScript
-                  name: ShellScript_1
-                  identifier: ShellScript_1
-                  spec:
-                    shell: Bash
-                    executionTarget: {}
-                    source:
-                      type: Inline
-                      spec:
-                        script: echo 'haha'
-                    environmentVariables: []
-                    outputVariables:
-                      - name: haha
-                        type: String
-                        value: ex
-                      - name: testCustom
-                        type: Secret
-                        value: <+input>
-                  timeout: 10m
-        tags: {}
