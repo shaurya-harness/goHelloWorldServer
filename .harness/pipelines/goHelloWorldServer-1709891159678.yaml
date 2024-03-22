@@ -11,7 +11,7 @@ pipeline:
         build:
           type: branch
           spec:
-            branch: <+input>.default(master)
+            branch: <+input>.default(main)
   stages:
     - stage:
         identifier: build
