@@ -6,9 +6,12 @@ pipeline:
   properties:
     ci:
       codebase:
-        build: <+input>
         connectorRef: account.oauthsk
         repoName: shaurya-harness/goHelloWorldServer
+        build:
+          type: branch
+          spec:
+            branch: <+input>.default(master)
   stages:
     - stage:
         identifier: build
