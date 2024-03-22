@@ -23,7 +23,12 @@ pipeline:
                   identifier: gobuild
                   name: go_build
                   spec:
+                    shell: Sh
                     command: go build
+                    outputVariables:
+                      - name: name
+                        type: String
+                        value: <+input>
                   timeout: ""
                   type: Run
               - step:
@@ -57,11 +62,11 @@ pipeline:
                   timeout: ""
                   type: BuildAndPushDockerRegistry
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
     - stage:
         name: custom
