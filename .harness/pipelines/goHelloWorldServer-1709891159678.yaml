@@ -8,7 +8,10 @@ pipeline:
       codebase:
         connectorRef: sknoapi
         repoName: goHelloWorldServer
-        build: <+input>
+        build:
+          type: branch
+          spec:
+            branch: <+input>.default(main)
   stages:
     - stage:
         identifier: build
