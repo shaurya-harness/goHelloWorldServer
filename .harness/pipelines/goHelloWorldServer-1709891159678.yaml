@@ -9,7 +9,7 @@ pipeline:
         connectorRef: sknoapi
         repoName: goHelloWorldServer
         build: <+input>
-        branch: <+input>.default(main)
+        branch: <+input>.default(testnowskk)
   stages:
     - stage:
         identifier: build
