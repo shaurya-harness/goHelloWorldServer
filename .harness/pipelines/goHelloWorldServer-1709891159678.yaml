@@ -6,12 +6,9 @@ pipeline:
   properties:
     ci:
       codebase:
-        connectorRef: sknoapi
+        connectorRef: testas
         repoName: goHelloWorldServer
-        build:
-          type: branch
-          spec:
-            branch: <+input>.default(testnowskk)
+        build: <+input>
   stages:
     - stage:
         identifier: build
