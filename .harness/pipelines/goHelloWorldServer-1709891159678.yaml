@@ -73,10 +73,7 @@ pipeline:
                     templateInputs:
                       type: Run
                       spec:
-                        outputVariables:
-                          - name: name
-                            type: String
-                            value: <+input>
+                        connectorRef: <+input>
           platform:
             os: Linux
             arch: Amd64
