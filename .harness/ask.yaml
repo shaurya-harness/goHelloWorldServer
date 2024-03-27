@@ -9,7 +9,10 @@ inputSet:
     properties:
       ci:
         codebase:
-          build: <+input>
+          build:
+            type: branch
+            spec:
+              branch: testnowakss
     stages:
       - stage:
           identifier: build
@@ -21,16 +24,8 @@ inputSet:
                     identifier: gobuild
                     type: Run
                     spec:
-                      outputVariables:
-                        - name: name
-                          type: String
-                          value: v1
-                        - name: test
-                          type: String
-                          value: v2
-                        - name: forSecret
-                          type: Secret
-                          value: v3
+                      connectorRef: account.AccountJfrogRegistry
+                      image: rand1
                 - step:
                     identifier: dockerbuild
                     type: Plugin
@@ -44,21 +39,4 @@ inputSet:
                       templateInputs:
                         type: Run
                         spec:
-                          outputVariables:
-                            - name: name
-                              type: String
-                              value: rwVR
-      - stage:
-          identifier: custom
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    identifier: ShellScript_1
-                    type: ShellScript
-                    spec:
-                      outputVariables:
-                        - name: testCustom
-                          type: Secret
-                          value: customSecretValue
+                          connectorRef: <+input>
