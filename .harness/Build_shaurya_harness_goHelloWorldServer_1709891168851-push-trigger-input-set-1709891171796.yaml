@@ -1,5 +1,6 @@
 inputSet:
   name: Build_shaurya_harness_goHelloWorldServer_1709891168851-push-trigger-input-set
+  tags: {}
   identifier: Build_shaurya_harness_goHelloWorldServer_1709891168851pushtriggerinputset
   orgIdentifier: default
   projectIdentifier: shauryatesting
@@ -12,3 +13,33 @@ inputSet:
             type: branch
             spec:
               branch: <+trigger.branch>
+    stages:
+      - stage:
+          identifier: build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: gobuild
+                    type: Run
+                    spec:
+                      connectorRef: <+input>
+                      image: "  asd  "
+                - step:
+                    identifier: dockerbuild
+                    type: Plugin
+                    spec:
+                      settings:
+                        password: ""
+                        username: ""
+                - step:
+                    identifier: rw
+                    template:
+                      templateInputs:
+                        type: Run
+                        spec:
+                          outputVariables:
+                            - name: name
+                              type: String
+                              value: <+input>
