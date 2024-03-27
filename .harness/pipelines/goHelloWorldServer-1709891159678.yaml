@@ -36,7 +36,10 @@ pipeline:
                   identifier: gotestcoverage
                   name: go_test_coverage
                   spec:
+                    shell: Sh
                     command: go test -coverprofile=coverage.out ./...
+                    outputVariables:
+                      - name: testvaraaaa
                   timeout: ""
                   type: Run
               - step:
