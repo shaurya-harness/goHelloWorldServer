@@ -24,6 +24,8 @@ pipeline:
                   identifier: gobuild
                   name: go_build
                   spec:
+                    connectorRef: <+input>
+                    image: asd
                     shell: Sh
                     command: go build
                     outputVariables:
