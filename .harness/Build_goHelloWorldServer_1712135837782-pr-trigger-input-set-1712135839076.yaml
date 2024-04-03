@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_goHelloWorldServer_1712135837782-pr-trigger-input-set
+  identifier: Build_goHelloWorldServer_1712135837782prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: resh
+  pipeline:
+    identifier: Build_goHelloWorldServer_1712135837782
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
