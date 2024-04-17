@@ -8,10 +8,8 @@ pipeline:
       codebase:
         connectorRef: testas
         repoName: goHelloWorldServer
-        build:
-          type: branch
-          spec:
-            branch: <+input>.default(testnowakss)
+        build: <+input>
+        depth: <+input>
   stages:
     - stage:
         identifier: build
