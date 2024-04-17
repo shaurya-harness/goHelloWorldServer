@@ -27,16 +27,14 @@ pipeline:
                     connectorRef: <+input>
                     image: <+input>
                     shell: Sh
-                    command: echo "123"
+                    command: echo "1234"
                     resources:
                       limits:
                         memory: 1000Mi
                         cpu: 400m
-          infrastructure:
-            type: KubernetesDirect
-            spec:
-              connectorRef: account.Harness_Kubernetes_Cluster
-              namespace: <+input>
-              automountServiceAccountToken: true
-              nodeSelector: {}
-              os: Linux
+          platform:
+            os: Linux
+            arch: Arm64
+          runtime:
+            type: Cloud
+            spec: {}
