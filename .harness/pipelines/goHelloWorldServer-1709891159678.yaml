@@ -74,6 +74,20 @@ pipeline:
                       type: Run
                       spec:
                         connectorRef: <+input>
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: <+input>
+                    image: <+input>
+                    shell: Sh
+                    command: echo "12344"
+                    imagePullPolicy: Always
+                    resources:
+                      limits:
+                        memory: 1000Mi
+                        cpu: 400m
           platform:
             os: Linux
             arch: Amd64
