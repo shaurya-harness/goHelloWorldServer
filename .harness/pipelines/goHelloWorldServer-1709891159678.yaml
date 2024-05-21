@@ -25,6 +25,7 @@ pipeline:
                     image: <+input>
                     shell: Sh
                     command: go build
+                    privileged: true
                     outputVariables:
                       - name: name
                       - name: test
