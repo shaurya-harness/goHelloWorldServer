@@ -6,8 +6,8 @@ pipeline:
   properties:
     ci:
       codebase:
-        connectorRef: testas
-        repoName: goHelloWorldServer
+        connectorRef: <+input>
+        repoName: <+input>
         build: <+input>
   stages:
     - stage:
