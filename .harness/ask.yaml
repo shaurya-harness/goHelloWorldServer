@@ -9,6 +9,8 @@ inputSet:
     properties:
       ci:
         codebase:
+          connectorRef: newtestgithub
+          repoName: <+input>
           build:
             type: branch
             spec:
@@ -40,3 +42,9 @@ inputSet:
                         type: Run
                         spec:
                           connectorRef: <+input>
+                - step:
+                    identifier: Run_1
+                    type: Run
+                    spec:
+                      connectorRef: <+input>
+                      image: <+input>
