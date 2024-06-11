@@ -81,6 +81,8 @@ pipeline:
                     image: <+input>
                     shell: Sh
                     command: echo "12344"
+                    envVariables:
+                      ok: <+input>.allowedValues(true,false)
                     imagePullPolicy: Always
                     resources:
                       limits:
