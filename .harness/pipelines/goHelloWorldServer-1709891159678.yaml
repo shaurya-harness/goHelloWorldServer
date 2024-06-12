@@ -88,6 +88,17 @@ pipeline:
                       limits:
                         memory: 1000Mi
                         cpu: 400m
+              - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: newtestgithub
+                    repoName: a
+                    build:
+                      type: branch
+                      spec:
+                        branch: <+input>
           platform:
             os: Linux
             arch: Amd64
