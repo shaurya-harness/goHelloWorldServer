@@ -1,0 +1,40 @@
+pipeline:
+  name: remote-inputs
+  identifier: remoteinputs
+  projectIdentifier: shauryaTest
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: accountsk
+        repoName: goHelloWorldServer
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: new_docker_test
+                    image: <+input>
+                    shell: Sh
+                    command: echo node --version
+                  description: ec
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.CItestK8sConnectorrqe3ef2W3n
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
