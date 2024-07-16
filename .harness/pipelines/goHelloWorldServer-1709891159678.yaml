@@ -21,15 +21,9 @@ pipeline:
                   identifier: gobuild
                   name: go_build
                   spec:
-                    connectorRef: <+input>
-                    image: <+input>
                     shell: Sh
                     command: go build
                     privileged: true
-                    outputVariables:
-                      - name: name
-                      - name: test
-                      - name: forSecret
                   timeout: ""
                   type: Run
           platform:
