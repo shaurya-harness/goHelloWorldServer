@@ -1,0 +1,26 @@
+inputSet:
+  name: testipset
+  identifier: testipset
+  orgIdentifier: VIkas_Test
+  projectIdentifier: testingSK
+  pipeline:
+    identifier: harnesstest
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
+    stages:
+      - stage:
+          identifier: build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Run_1
+                    type: Run
+                    spec:
+                      command: <+input>
